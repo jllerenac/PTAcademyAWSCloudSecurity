@@ -64,3 +64,5 @@ Check for MFA devices for users by executing `aws iam list-virtual-mfa-devices -
 Check for user login profile with `aws iam get-login-profile --user-name ad-user --profile PTAcademyJllerena`
 ![image](https://user-images.githubusercontent.com/46797181/222312980-217d80e9-c7d7-4b29-881c-5eea97f1e2a0.png)
 
+Get the groups for the AWS account in user `aws iam list-groups --profile PTAcademyJllerena`
+![image](https://user-images.githubusercontent.com/46797181/222313642-fe76a0cd-4fda-4f7d-a6d1-9f5ea7f2f1e2.png)
