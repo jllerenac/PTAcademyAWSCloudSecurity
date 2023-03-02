@@ -36,16 +36,16 @@ Then, create a `JSON` file with the following content:
 
 ```
 {
-"Version": "2012-10-17",
-"Statement": [
-{
-"Effect": "Allow",
-"Principal": {
-"AWS": "*"
-},
-"Action": "sts:AssumeRole",
-"Condition": {}
-}
-]
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+      "AWS": "*"
+    },
+      "Action": "sts:AssumeRole",
+    "Condition": {}
+    }
+  ]
 }
 ```
