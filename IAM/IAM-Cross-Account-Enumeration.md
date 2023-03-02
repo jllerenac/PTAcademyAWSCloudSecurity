@@ -49,3 +49,13 @@ Then, create a `JSON` file with the following content:
   ]
 }
 ```
+Create a role on the AWS account using AWS CLI using the forged policy. `aws iam create-role --role-name jllRole --assume-role-policy-document file://jllAssumeRole.json --profile PTAcademyJllerena`
+
+![image](https://user-images.githubusercontent.com/46797181/222337466-6cbaef93-f03c-4454-bfa8-621e4a0f5a10.png)
+
+Next step is to use the tool PACU https://github.com/RhinoSecurityLabs/pacu and follow the instructions to install. In my case I installed with `pip3 install pacu`
+
+Then, run pacu and set the PT Academy credentials with `set_keys`
+![image](https://user-images.githubusercontent.com/46797181/222338074-b9c84be8-efba-457e-abd2-199a877cd9dc.png)
+
+
