@@ -1,6 +1,8 @@
 
 ### IAM ENUMERATION
 
+## Console Enumeration
+
 We go to the link provided by PT Academy when starting the lab 
 
 ![image](https://user-images.githubusercontent.com/46797181/222305461-92c6103b-7fd2-4557-b2a1-fba4afc3657c.png)
@@ -22,3 +24,16 @@ We can keep exploring other users and check the security credentials to see if s
 
 Policies can also be checked
 ![image](https://user-images.githubusercontent.com/46797181/222307266-558b2985-aff4-4731-808c-d1c15883ea90.png)
+
+Groups can also be enumerated as well
+
+![image](https://user-images.githubusercontent.com/46797181/222307487-bad77e27-aa2f-407b-bef8-9af13a119341.png)
+
+Role enumeration to see permissions and trust relationships
+![image](https://user-images.githubusercontent.com/46797181/222308959-f7fe6791-3c8d-499c-88aa-ae5c2a046d45.png)
+![image](https://user-images.githubusercontent.com/46797181/222309018-9c17c2a4-8761-4bb5-ab9b-b80aff991f2a.png)
+
+Click on the policy to see its information
+![image](https://user-images.githubusercontent.com/46797181/222309188-dc71104e-d8f8-4cc7-b5c8-1e6c9ded4ca5.png)
+
+## AWS CLI enumeration 
