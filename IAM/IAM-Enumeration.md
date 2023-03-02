@@ -46,3 +46,14 @@ To enumerate users execute `aws iam list-users --profile PTAcademyJllerena`
 To list groups for a user execute `aws iam list-groups-for-user --user-name ad-adminson --profile PTAcademyJllerena`
 ![image](https://user-images.githubusercontent.com/46797181/222310570-e5c69dc5-1e86-40a9-b3b7-8a5cdf0f30fa.png)
 
+To list policies for user execute `aws iam list-attached-user-policies --user-name ad-adminson --profile PTAcademyJllerena`
+![image](https://user-images.githubusercontent.com/46797181/222310891-a9ade260-d59f-4fcf-8370-1acfab2c0c77.png)
+
+To check a signing certificate for a user execute `aws iam list-signing-certificates --user-name ad-user --profile PTAcademyJllerena`
+![image](https://user-images.githubusercontent.com/46797181/222311125-26b127b1-b879-4b32-9f1d-a24e27d9cc4b.png)
+
+To check any ssh public key, execute `aws iam list-ssh-public-keys --user-name ad-user --profile PTAcademyJllerena`
+![image](https://user-images.githubusercontent.com/46797181/222311542-a050d8a5-92a5-4225-ae27-a8f159070468.png)
+
+Get the ssh key details with `aws iam get-ssh-public-key --user-name ad-user --encoding PEM --ssh-public-key-id APKAUAWOPGE5M47NZEIT --profile PTAcademyJllerena`
+![image](https://user-images.githubusercontent.com/46797181/222312198-4525a9b4-9e3a-4fbc-8784-3d7e0f780ddf.png)
