@@ -66,3 +66,16 @@ Check for user login profile with `aws iam get-login-profile --user-name ad-user
 
 Get the groups for the AWS account in user `aws iam list-groups --profile PTAcademyJllerena`
 ![image](https://user-images.githubusercontent.com/46797181/222313642-fe76a0cd-4fda-4f7d-a6d1-9f5ea7f2f1e2.png)
+
+Check which policies are attached to the group to enumerate permissions
+
+```
+aws iam list-group-policies --group-name ad-admin --profile PTAcademyJllerena
+aws iam list-attached-group-policies --group-name ad-admin --profile PTAcademyJllerena
+
+```
+![image](https://user-images.githubusercontent.com/46797181/222314108-3c9a185e-6b09-40ad-bb4a-949933152d9b.png)
+
+Enumerate policies for the AWS account in use. `aws iam list-policies --profile PTAcademyJllerena`
+![image](https://user-images.githubusercontent.com/46797181/222314528-4fa0e9f1-e395-46d1-93f2-1267a344feb4.png)
+
