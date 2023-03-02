@@ -79,3 +79,4 @@ aws iam list-attached-group-policies --group-name ad-admin --profile PTAcademyJl
 Enumerate policies for the AWS account in use. `aws iam list-policies --profile PTAcademyJllerena`
 ![image](https://user-images.githubusercontent.com/46797181/222314528-4fa0e9f1-e395-46d1-93f2-1267a344feb4.png)
 
+Searching for customer managed policies 
