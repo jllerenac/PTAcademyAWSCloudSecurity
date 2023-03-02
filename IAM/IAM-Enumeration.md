@@ -37,3 +37,12 @@ Click on the policy to see its information
 ![image](https://user-images.githubusercontent.com/46797181/222309188-dc71104e-d8f8-4cc7-b5c8-1e6c9ded4ca5.png)
 
 ## AWS CLI enumeration 
+First configure the profile with the access keys provided with `aws configure --profile PTAcademyJllerena`
+![image](https://user-images.githubusercontent.com/46797181/222309574-1c5a6164-bca7-4e53-a89b-c20dbb2221bb.png)
+
+To enumerate users execute `aws iam list-users --profile PTAcademyJllerena`
+![image](https://user-images.githubusercontent.com/46797181/222309784-414250dd-6f72-42e2-8628-d71cf1218302.png)
+
+To list groups for a user execute `aws iam list-groups-for-user --user-name ad-adminson --profile PTAcademyJllerena`
+![image](https://user-images.githubusercontent.com/46797181/222310570-e5c69dc5-1e86-40a9-b3b7-8a5cdf0f30fa.png)
+
