@@ -80,5 +80,27 @@ Enumerate policies for the AWS account in use. `aws iam list-policies --profile 
 ![image](https://user-images.githubusercontent.com/46797181/222314528-4fa0e9f1-e395-46d1-93f2-1267a344feb4.png)
 
 Searching for customer managed policies `aws iam list-policies --scope Local --profile PTAcademyJllerena | grep -A2 PolicyName`
+The parameter A2 in the grep command shows the next two lines, in this case will show the `PolicyId` and the `Arn`
+
 ![image](https://user-images.githubusercontent.com/46797181/222317296-03737bdd-2cc8-463e-b317-295bba9651ad.png)
+
+ Check for policy details of ad-customer-managed-policy `aws iam get-policy --policy-arn arn:aws:iam::276384657722:policy/ad-customer-managed-policy --profile PTAcademyJllerena`
+![image](https://user-images.githubusercontent.com/46797181/222320559-edfa7e48-6471-4700-886a-0485cac9ae21.png)
+
+Get the policy version document to check permissions that the policy grants. `aws iam get-policy-version --policy-arn arn:aws:iam::276384657722:policy/ad-customer-managed-policy --version-id v1 --profile PTAcademyJllerena`
+
+![image](https://user-images.githubusercontent.com/46797181/222320906-516cc4bb-4480-4553-a4db-1699db9b372e.png)
+
+Enumeration of roles can be done with `aws iam list-roles --profile PTAcademyJllerena` 
+![image](https://user-images.githubusercontent.com/46797181/222321108-81ea26ed-1de1-4a66-8c8b-02e7fdd9c492.png)
+
+Details of a role can be obtained with `aws iam get-role --role-name ad-loggingrole --profile PTAcademyJllerena`
+![image](https://user-images.githubusercontent.com/46797181/222321252-8a9f477c-8388-41dc-a612-7fd73e78cc1d.png)
+
+Check for policies attached to roles. 
+```
+aws iam list-attached-role-policies --role-name ad-loggingrole --profile PTAcademyJllerena
+aws iam list-role-policies --role-name ad-loggingrole --profile PTAcademyJllerena
+```
+![image](https://user-images.githubusercontent.com/46797181/222321653-3175fbd6-48d7-4c04-8a17-f15b92b62e4e.png)
 
