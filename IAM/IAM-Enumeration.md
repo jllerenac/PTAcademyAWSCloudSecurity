@@ -58,5 +58,9 @@ To check any ssh public key, execute `aws iam list-ssh-public-keys --user-name a
 Get the ssh key details with `aws iam get-ssh-public-key --user-name ad-user --encoding PEM --ssh-public-key-id APKAUAWOPGE5M47NZEIT --profile PTAcademyJllerena`
 ![image](https://user-images.githubusercontent.com/46797181/222312198-4525a9b4-9e3a-4fbc-8784-3d7e0f780ddf.png)
 
-Check for MFA devices for users by executing `aws iam list-virtual-mfa-devices` 
+Check for MFA devices for users by executing `aws iam list-virtual-mfa-devices --profile PTAcademyJllerena` 
 ![image](https://user-images.githubusercontent.com/46797181/222312537-326d079e-2330-4c95-b032-718a9a293e6f.png)
+
+Check for user login profile with `aws iam get-login-profile --user-name ad-user --profile PTAcademyJllerena`
+![image](https://user-images.githubusercontent.com/46797181/222312980-217d80e9-c7d7-4b29-881c-5eea97f1e2a0.png)
+
