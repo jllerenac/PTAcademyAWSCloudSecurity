@@ -6,3 +6,25 @@ First, list attached policies for user `student` `aws iam list-attached-user-pol
 
 ![image](https://user-images.githubusercontent.com/46797181/222631607-91c607e2-d4f8-44d0-b2a0-69bc1ae83bf7.png)
 
+If a user is tried to be created, a denied message will be received ` aws iam create-user --user-name jllerena --profile PTAcademyJllerena`
+![image](https://user-images.githubusercontent.com/46797181/222631842-3b8ccab1-7e4b-4419-b1d9-d56a74e7a51b.png)
+
+What can be done is to get information about the user’s inline policies and enumerate the attached policies.
+```
+aws iam list-user-policies --user-name student --profile PTAcademyJllerena
+aws iam get-user-policy --user-name student --policy-name terraform-20230303041857712300000002 --profile PTAcademyJllerena
+
+```
+![image](https://user-images.githubusercontent.com/46797181/222632349-d106b9f1-db58-4a55-8206-2d3f93e537c8.png)
+
+Check policies attached to Adder role and check the role-policy document for the policy `AddUser`.
+
+```
+aws iam list-role-policies --role-name Adder --profile PTAcademyJllerena
+aws iam get-role-policy --role-name Adder --policy-name AddUser --profile PTAcademyJllerena
+
+```
+![image](https://user-images.githubusercontent.com/46797181/222633923-83a1ecab-e304-4a5c-8b57-d620720a7aba.png)
+
+
+
