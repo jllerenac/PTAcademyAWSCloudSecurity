@@ -27,6 +27,21 @@ aws iam get-role-policy --role-name Adder --policy-name AddUser --profile PTAcad
 ![image](https://user-images.githubusercontent.com/46797181/222633923-83a1ecab-e304-4a5c-8b57-d620720a7aba.png)
 
 Assume Adder role with student user. `aws sts assume-role --role-arn arn:aws:iam::566111886431:role/Adder --role-session-name adder_jllerena --profile PTAcademyJllerena`
-![image](https://user-images.githubusercontent.com/46797181/222635748-f8cdd417-532f-4b8d-ad85-03a7d19b56dd.png)
+![image](https://user-images.githubusercontent.com/46797181/222636097-2ba838b6-375c-4e0b-8001-b6978538e0c8.png)
 
+With this assume role lets store the credentials which can be in the env variables or in my case in the `~/.aws/credentials` path 
+
+Lets add `student` user to `Printers` group `aws iam add-user-to-group --group-name Printers --user-name student --profile PTAJllerenaAssumedRole`
+
+![image](https://user-images.githubusercontent.com/46797181/222640066-b390c175-2242-4f7a-8b60-3a47b89681d6.png)
+
+Something important to notice is that this credentials storing in the `credentials` file gave an error, so the workaround was to store the values in env variables 
+![image](https://user-images.githubusercontent.com/46797181/222640388-2eadecc4-e05b-4d8a-a339-21fcd857a5cc.png)
+
+```
+export AWS_ACCESS_KEY_ID=ASIA4FSZIQWHZGGDJ36G
+export AWS_SECRET_ACCESS_KEY=NHaUFlUqtXoaJrCs9/HurXAN0MEuNEfKsm3Lzlov
+export AWS_SESSION_TOKEN=IQoJ<rest of token>
+aws iam add-user-to-group --group-name Printers --user-name student
+```
 
