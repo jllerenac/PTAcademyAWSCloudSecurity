@@ -44,4 +44,51 @@ export AWS_SECRET_ACCESS_KEY=NHaUFlUqtXoaJrCs9/HurXAN0MEuNEfKsm3Lzlov
 export AWS_SESSION_TOKEN=IQoJ<rest of token>
 aws iam add-user-to-group --group-name Printers --user-name student
 ```
+Once added the user to the group the env variables can be unset 
 
+```
+unset AWS_ACCESS_KEY_ID
+unset AWS_SECRET_ACCESS_KEY
+unset AWS_SESSION_TOKEN
+```
+Listing the groups for user `student` will show that is added to `Printers` group `aws iam list-groups-for-user --user-name student --profile PTAcademyJllerena` 
+![image](https://user-images.githubusercontent.com/46797181/222640832-5e52f352-4eb0-4a18-b8e4-d65acf906f88.png)
+
+Repeat the above steps for `Attacher` role 
+
+```
+aws iam list-role-policies --role-name Attacher --profile PTAcademyJllerena
+aws iam get-role-policy --role-name Attacher --policy-name AttachPolicy --profile PTAcademyJllerena
+``` 
+![image](https://user-images.githubusercontent.com/46797181/222641612-fcc9b90b-b42b-4d32-a4b8-650613e19933.png)
+
+Above image shows that any policy can be added to the printers group. Lets find `Administrator` policy `aws iam list-policies --profile PTAcademyJllerena | grep 'AdministratorAccess' `
+
+![image](https://user-images.githubusercontent.com/46797181/222642002-6ec8143a-8ff4-4203-b02d-95df7b46cb8d.png)
+
+Next, assume `attacher` role `aws sts assume-role --role-arn arn:aws:iam::836632104335:role/Attacher --role-session-name attacher_jllerena --profile PTAcademyJllerena`  
+
+![image](https://user-images.githubusercontent.com/46797181/222642732-2b513497-7d7c-487d-bc70-b5fe0e127c30.png)
+
+Set the env variables for the assumed role credentials 
+
+```
+export AWS_ACCESS_KEY_ID=ASIA4FSZIQWHZGGDJ36G
+export AWS_SECRET_ACCESS_KEY=NHaUFlUqtXoaJrCs9/HurXAN0MEuNEfKsm3Lzlov
+export AWS_SESSION_TOKEN=IQoJ<rest of token>
+
+```
+Next, attach the `AdministratorAccess` policy to the `Printers` group and verify with below commands
+
+Additionally `unset` the env variables  
+
+```
+aws iam attach-group-policy --group-name Printers --policy-arn arn:aws:iam::aws:policy/AdministratorAccess
+aws iam list-attached-group-policies --group-name Printers --profile PTAcademyJllerena
+
+```
+![image](https://user-images.githubusercontent.com/46797181/222643461-719f7cf8-93db-4f68-8c46-0cfdb5bc7372.png)
+
+Create a user with `aws iam create-user --user-name jllerena --profile PTAcademyJllerena`
+
+![image](https://user-images.githubusercontent.com/46797181/222643872-ff89d6d0-3cf0-4b73-b3ce-c9da5f8604cf.png)
