@@ -26,5 +26,7 @@ aws iam get-role-policy --role-name Adder --policy-name AddUser --profile PTAcad
 ```
 ![image](https://user-images.githubusercontent.com/46797181/222633923-83a1ecab-e304-4a5c-8b57-d620720a7aba.png)
 
+Assume Adder role with student user. `aws sts assume-role --role-arn arn:aws:iam::566111886431:role/Adder --role-session-name adder_jllerena --profile PTAcademyJllerena`
+![image](https://user-images.githubusercontent.com/46797181/222635748-f8cdd417-532f-4b8d-ad85-03a7d19b56dd.png)
 
 
