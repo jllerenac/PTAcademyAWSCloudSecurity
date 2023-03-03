@@ -92,3 +92,5 @@ aws iam list-attached-group-policies --group-name Printers --profile PTAcademyJl
 Create a user with `aws iam create-user --user-name jllerena --profile PTAcademyJllerena`
 
 ![image](https://user-images.githubusercontent.com/46797181/222643872-ff89d6d0-3cf0-4b73-b3ce-c9da5f8604cf.png)
+
+In conclusion, `student` user is in `Printers` group which has `Administrator` permissions, this shows that privilege escalation has been achieved.
