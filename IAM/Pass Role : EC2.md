@@ -24,6 +24,16 @@ The student user can run EC2 instances and pass a role to the EC2 instance. Sinc
 Check ec2admin role policies and permissions. `aws iam list-role-policies --role-name ec2admin --profile PTAcademyJllerena`
 ![image](https://user-images.githubusercontent.com/46797181/222875564-89c4e963-4626-46d8-b02a-b2d279a2c073.png)
 
+Check policy permissions. `aws iam get-role-policy --role-name ec2admin --policy-name terraform-20230304040647411800000003 --profile PTAcademyJllerena` 
+![image](https://user-images.githubusercontent.com/46797181/222875825-abad55e4-4966-4574-918e-90584843e934.png)
+
+Find AMI id for Amazon Linux 2 AMI. `aws ec2 describe-images --owners amazon --filters 'Name=name,Values=amzn-ami-hvm-*-x86_64-gp2' 'Name=state,Values=available' --output json --profile PTAcademyJllerena | jq -r '.Images | sort_by(.CreationDate) | last(.[]).ImageId'`
+
+The value obtained is `ami-07bf5557ac8caacca`
+![image](https://user-images.githubusercontent.com/46797181/222876826-128122a8-3573-40ee-be28-0ba117df9acc.png)
+
+Check the subnets available in the AWS account `aws ec2 describe-subnets --profile PTAcademyJllerena`
+![image](https://user-images.githubusercontent.com/46797181/222877273-1e36b971-e35a-43c2-8a7f-01c189a9be89.png)
 
 
 
