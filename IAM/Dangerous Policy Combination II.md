@@ -58,7 +58,16 @@ Role policy says that role PolicyUpdater has permission to create a new PolicyVe
 
 ![image](https://user-images.githubusercontent.com/46797181/222871232-0a83488b-db51-4482-b054-cd0ae52b7a3b.png)
 
+The Print policy is attached to the Printers group. List the version of policies available for Print policy `aws iam get-policy --policy-arn arn:aws:iam::213923356313:policy/Print --profile PTAcademyJllerena`
 
+![image](https://user-images.githubusercontent.com/46797181/222871463-961b5e3f-fb4c-4d37-8fb6-520ac16d3534.png)
 
+View the policy document for v1 version of Print policy `aws iam get-policy-version --policy-arn arn:aws:iam::213923356313:policy/Print --version-id v1 --profile PTAcademyJllerena`
+
+![image](https://user-images.githubusercontent.com/46797181/222871742-3b49d9f8-4830-43cf-961e-754c8767f9c0.png)
+
+Assume PolicyUpdater role. `aws sts assume-role --role-arn arn:aws:iam::213923356313:role/PolicyUpdater --role-session-name policy_jllerena --profile PTAcademyJllerena`
+
+![image](https://user-images.githubusercontent.com/46797181/222871903-58f59a50-c386-4b5c-86e4-2202dac6d638.png)
 
 
