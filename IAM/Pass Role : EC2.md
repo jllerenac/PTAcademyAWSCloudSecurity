@@ -17,8 +17,12 @@ Attempt to create a user on the AWS account. `aws iam create-user --user-name jl
 Check the policy permissions and details. `aws iam get-user-policy --user-name student --policy-name ConfigureEC2Role --profile PTAcademyJllerena` 
 ![image](https://user-images.githubusercontent.com/46797181/222875168-43144363-8658-4f2a-80c7-4bd2e3fd6484.png)
 
+The student user can run EC2 instances and pass a role to the EC2 instance. Since the student user also has permission to interact with the SSM service, the student user can execute commands on the EC2 instances via SSM. List role on AWS account which can be passed to EC2 service. `aws iam list-roles --profile PTAcademyJllerena` 
 
+![image](https://user-images.githubusercontent.com/46797181/222875518-d3d8cd2b-989d-4717-8ad9-9d44a9b4531c.png)
 
+Check ec2admin role policies and permissions. `aws iam list-role-policies --role-name ec2admin --profile PTAcademyJllerena`
+![image](https://user-images.githubusercontent.com/46797181/222875564-89c4e963-4626-46d8-b02a-b2d279a2c073.png)
 
 
 
