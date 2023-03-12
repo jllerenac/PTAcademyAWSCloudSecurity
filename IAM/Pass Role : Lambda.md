@@ -43,16 +43,27 @@ def handler(event, context):
 
 ```
 
-Create a lambda function on AWS account. `aws lambda create-function --function-name jllerena --runtime python3.8 --zip-file fileb://aws.zip --handler jll.handler --role arn:aws:iam::350092314133:role/lab11lambdaiam --profile PTAcademyJllerena`
+Create a lambda function on AWS account. `aws lambda create-function --function-name jllerena3 --runtime python3.8 --zip-file fileb://aws.zip --handler aws.handler --role arn:aws:iam::350092314133:role/lab11lambdaiam --profile PTAcademyJllerena`
 
-![image](https://user-images.githubusercontent.com/46797181/224526732-29b4f14e-3a2b-406d-8178-5deda0458a8c.png)
+Important Note: The handled must match the python file name, in this case `aws.py` -> `aws.handler`
+
+![image](https://user-images.githubusercontent.com/46797181/224527373-5f3b525c-aeb0-4eaa-b8c1-a051366b23ee.png)
 
 Invoke the newly created Lambda function `aws lambda invoke --function-name jllerena jllerena_out.txt --profile PTAcademyJllerena`
+![image](https://user-images.githubusercontent.com/46797181/224527404-2dbc0a52-148c-4b96-a17a-05e82301bccf.png)
+
 ![image](https://user-images.githubusercontent.com/46797181/224526797-670a745c-fccb-4ef1-a7f3-2050b6daf346.png)
+Important Note: If something is wrong with the function `"FunctionError": "Unhandled"` appears and the out file will give the error detail
 
-Check attached policies on student user. 
 
+Check attached policies on student user. `aws iam list-attached-user-policies --user-name student --profile PTAcademyJllerena`
+![image](https://user-images.githubusercontent.com/46797181/224527481-16fd81ee-fc13-4fdf-9c9d-d065f0ad4882.png)
 
+As seen in above image, the user has administrator privilege, we can verify this by creating a new user `aws iam create-user --user-name jllerena --profile PTAcademyJllerena`
+
+![image](https://user-images.githubusercontent.com/46797181/224527532-eb6f0b39-534d-44aa-9a9d-df3ff74827f4.png)
+
+Privilege escalation has been achieved. 
 
 
 
