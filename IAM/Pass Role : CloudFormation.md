@@ -8,6 +8,7 @@ aws iam list-user-policies --user-name student --profile PTAcademyJllerena
 aws iam create-user --user-name Bob --profile PTAcademyJllerena
 
 ```
+![image](https://user-images.githubusercontent.com/46797181/224529051-e7989a81-6393-48de-b3e0-6d50503e4acd.png)
 
 Check the policy permissions and details. `aws iam get-user-policy --user-name student --policy-name terraform-20230312061123165200000001 --profile PTAcademyJllerena`
 
