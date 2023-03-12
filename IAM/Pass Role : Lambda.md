@@ -10,7 +10,7 @@ aws iam create-user --user-name Bob --profile PTAcademyJllerena
 ```
 ![image](https://user-images.githubusercontent.com/46797181/224526113-bcf89a03-6a78-4795-a59c-c3d7cf920327.png)
 
-Check the policy permissions and details. `aws iam create-user --user-name Bob --profile PTAcademyJllerena`
+Check the policy permissions and details. `aws iam get-user-policy --user-name student --policy-name terraform-20230312051026109100000001 --profile PTAcademyJllerena`
 
 ![image](https://user-images.githubusercontent.com/46797181/224526152-523acc00-e589-41f4-9637-3dd482379a4c.png)
 
@@ -50,7 +50,7 @@ Create a lambda function on AWS account. `aws lambda create-function --function-
 Invoke the newly created Lambda function `aws lambda invoke --function-name jllerena jllerena_out.txt --profile PTAcademyJllerena`
 ![image](https://user-images.githubusercontent.com/46797181/224526797-670a745c-fccb-4ef1-a7f3-2050b6daf346.png)
 
-Check attached policies on student user.
+Check attached policies on student user. 
 
 
 
