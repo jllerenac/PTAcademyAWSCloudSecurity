@@ -64,6 +64,22 @@ aws s3api get-object-acl --bucket file-uploader-saved-files --key flag --profile
 ![image](https://user-images.githubusercontent.com/46797181/224893711-d7d95d3c-eb1b-4d4d-8547-ef2642f6b28f.png)
 ![image](https://user-images.githubusercontent.com/46797181/224893806-4acd58ac-f152-4d31-bc9e-fa224adb230e.png)
 
+Download objects from the S3 bucket. 
+```
+aws s3 cp s3://file-uploader-saved-files/flag . --profile PTAcademyJllerena
+cat flag
+```
+![image](https://user-images.githubusercontent.com/46797181/224894172-e04af8f2-8313-42ef-9e79-51ffd0528024.png)
+
+Check bucket policy status. `aws s3api get-bucket-policy-status --bucket insecurecorp-code --profile PTAcademyJllerena`
+![image](https://user-images.githubusercontent.com/46797181/224894417-7cea6804-7148-445d-b788-28dd5045c0d8.png)
+
+Get bucket policy and beautify the output. `aws s3api get-bucket-policy --bucket insecurecorp-code --output text --profile PTAcademyJllerena | python3 -m json.tool`
+![image](https://user-images.githubusercontent.com/46797181/224894773-78e04181-5e98-46bd-a4ab-d9bfe25634c2.png)
+
+Check the public access block for a bucket. `aws s3api get-public-access-block --bucket data-extractor-repo --profile PTAcademyJllerena`
+![image](https://user-images.githubusercontent.com/46797181/224895031-1de7919e-2f8d-4269-bcbf-6c83531011c0.png)
+
 
 
 
