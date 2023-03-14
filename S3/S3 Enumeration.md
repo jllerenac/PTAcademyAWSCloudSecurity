@@ -1,6 +1,6 @@
-### S3 Enumeration 
+## S3 Enumeration 
 
-## Console S3 Enumeration
+### Console S3 Enumeration
 
 Log in the console and click on `S3` link or search for S3 dashboard
 ![image](https://user-images.githubusercontent.com/46797181/224888763-9c03d668-5283-4f88-b2ba-c92d3086893e.png)
@@ -37,17 +37,32 @@ Go to storage lens dashboard and click on the dashboard to view its details
 
 ![image](https://user-images.githubusercontent.com/46797181/224892078-523b354a-39ba-44ac-9929-e240b25b3308.png)
 
-## AWS CLI S3 BUCKET ENUMERATION
+### AWS CLI S3 BUCKET ENUMERATION
 
 First lets configure the access keys with `aws configure --profile --profile PTAcademyJllerena`
 
+List S3 buckets. `aws s3api list-buckets --profile PTAcademyJllerena`
+![image](https://user-images.githubusercontent.com/46797181/224892838-9cea6f33-4192-491f-877e-7c52fc2e498a.png)
 
+Check bucket location `aws s3api get-bucket-location --bucket data-extractor-repo --profile PTAcademyJllerena`
 
+Enumerate bucket objects 
+```
+aws s3api list-objects-v2 --bucket data-extractor-repo --profile PTAcademyJllerena
+aws s3api list-objects --bucket file-uploader-saved-files --profile PTAcademyJllerena
+```
+![image](https://user-images.githubusercontent.com/46797181/224893265-b5d12488-69c0-4336-8227-b40175489963.png)
 
+Check object versions. `aws s3api list-object-versions --bucket data-extractor-repo --profile PTAcademyJllerena`
+![image](https://user-images.githubusercontent.com/46797181/224893538-55a77a94-9dbc-4fe9-bd68-75a93f37f97a.png)
 
-
-
-
+Check bucket ACLs and objects ACLs
+```
+aws s3api get-bucket-acl --bucket file-uploader-saved-files --profile PTAcademyJllerena
+aws s3api get-object-acl --bucket file-uploader-saved-files --key flag --profile PTAcademyJllerena
+```
+![image](https://user-images.githubusercontent.com/46797181/224893711-d7d95d3c-eb1b-4d4d-8547-ef2642f6b28f.png)
+![image](https://user-images.githubusercontent.com/46797181/224893806-4acd58ac-f152-4d31-bc9e-fa224adb230e.png)
 
 
 
