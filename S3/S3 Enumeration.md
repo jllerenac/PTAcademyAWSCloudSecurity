@@ -1,5 +1,7 @@
 ### S3 Enumeration 
 
+## Console S3 Enumeration
+
 Log in the console and click on `S3` link or search for S3 dashboard
 ![image](https://user-images.githubusercontent.com/46797181/224888763-9c03d668-5283-4f88-b2ba-c92d3086893e.png)
 
@@ -33,6 +35,11 @@ Perform similar check on other buckets, focus on finding publicly accessibles bu
 Go to storage lens dashboard and click on the dashboard to view its details
 ![image](https://user-images.githubusercontent.com/46797181/224891779-a9b62a0f-3311-4d8f-85bc-edb6f39aa880.png)
 
+![image](https://user-images.githubusercontent.com/46797181/224892078-523b354a-39ba-44ac-9929-e240b25b3308.png)
+
+## AWS CLI S3 BUCKET ENUMERATION
+
+First lets configure the access keys with `aws configure --profile --profile PTAcademyJllerena`
 
 
 
