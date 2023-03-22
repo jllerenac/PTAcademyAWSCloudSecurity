@@ -26,7 +26,7 @@ cat backup.sh
 
 The backup file shows a curl command with API key and outputs to a file, running the command and opening the file will give a list of users and passwords along with the flag
 
-![image](https://user-images.githubusercontent.com/46797181/226802025-ffddc380-bf6c-4d96-a243-ef91e522b2c1.png)
+![image](https://user-images.githubusercontent.com/46797181/226802104-2ed07730-948c-4041-a758-d804afc1091f.png)
 
 
 EXERCISE COMPLETED
