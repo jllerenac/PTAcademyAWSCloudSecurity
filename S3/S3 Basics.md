@@ -27,7 +27,7 @@ Upload a file to the S3 bucket `hello-world` with the content "Hello World".
 
 ```
 echo "Hello World" > hello
-aws --endpoint http://192.232.110.3:9000 s3 cp hello s3://hello-world/flag 
+aws --endpoint http://192.232.110.3:9000 s3 cp hello s3://hello-world/ 
 ```
 ![image](https://user-images.githubusercontent.com/46797181/226781987-1a87886e-e7dc-46dc-a5c0-01e1fe45939e.png)
 
@@ -86,12 +86,27 @@ The resulting policy will be (save it in the machine as `policy.json` or any oth
 ```
 Update the bucket policy and list the files.
 ```
-aws --endpoint http://192.232.110.3:9000 s3api put-bucket-policy --policy file:///root/policy.json --bucket welcome
-curl http://192.232.110.3:9000/welcome/ -s | xmllint --format -
+aws --endpoint http://192.176.32.3:9000 s3api put-bucket-policy --policy file:///root/policy.json --bucket welcome
+curl http://192.176.32.3:9000/welcome/ -s | xmllint --format -
 
+```
+NOTE: IPs changes are because labs are restarted, in this case is because a no space left message appeared
+
+![image](https://user-images.githubusercontent.com/46797181/226790681-ad20a553-67e4-44d8-a075-4d9212f63efd.png)
+
+![image](https://user-images.githubusercontent.com/46797181/226790909-24b6e242-ed79-40f9-b1ed-b8e485cb287c.png)
+
+Delete the file `welcome` from the S3 Bucket `hello-world` and list the bucket
+
+```
+aws --endpoint http://192.176.32.3:9000 s3 rm s3://hello-world/welcome
+aws --endpoint http://192.176.32.3:9000 s3 ls s3://hello-world/
 ```
 
 
+![image](https://user-images.githubusercontent.com/46797181/226791550-5d294694-eddd-4f5c-9284-5079926063ef.png)
+
+EXERCISE COMPLETED !!!!
 
 
 
