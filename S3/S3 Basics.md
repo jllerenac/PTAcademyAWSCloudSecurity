@@ -39,9 +39,51 @@ aws --endpoint http://192.232.110.3:9000 s3api get-bucket-policy --bucket welcom
 ```
 ![image](https://user-images.githubusercontent.com/46797181/226782905-daf0d948-bba9-4421-821f-9c5d34fd2e40.png)
 
+Modify the Bucket policy on S3 Bucket `welcome` to list the objects present in it. 
+
+For this, go to `https://awspolicygen.s3.amazonaws.com/policygen.html` and input the following data
+```
+Type of policy: S3 
+Effect: Allow
+Principal: * 
+Action: List bucket 
+Resource: arn:aws:s3:::welcome
+
+```
+Add another statement for `GetObject` 
+
+![image](https://user-images.githubusercontent.com/46797181/226785019-832cb29d-022e-4b05-b9b9-784cc5e91b6a.png)
 
 
+The resulting policy will be (save it in the machine as `policy.json` or any other name)
 
+```
+{
+  "Id": "Policy1679451586556",
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Stmt1679451055814",
+      "Action": [
+        "s3:ListBucket"
+      ],
+      "Effect": "Allow",
+      "Resource": "arn:aws:s3:::welcome",
+      "Principal": "*"
+    },
+    {
+      "Sid": "Stmt1679451532470",
+      "Action": [
+        "s3:GetObject"
+      ],
+      "Effect": "Allow",
+      "Resource": "arn:aws:s3:::welcome/*",
+      "Principal": "*"
+    }
+  ]
+}
+
+```
 
 
 
