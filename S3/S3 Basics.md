@@ -84,7 +84,12 @@ The resulting policy will be (save it in the machine as `policy.json` or any oth
 }
 
 ```
+Update the bucket policy and list the files.
+```
+aws --endpoint http://192.232.110.3:9000 s3api put-bucket-policy --policy file:///root/policy.json --bucket welcome
+curl http://192.232.110.3:9000/welcome/ -s | xmllint --format -
 
+```
 
 
 
