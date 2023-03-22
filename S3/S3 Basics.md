@@ -14,4 +14,7 @@ Running the command `curl 192.232.110.3:9000` will give a denied message in XML 
 
 Output shows that S3 bucket may be running on that ports. Lets configure AWS CLI with `AWS configure` and enter the access keys provided
 
+List the buckets with `aws --endpoint http://192.232.110.3:9000 s3api list-buckets` 
+![image](https://user-images.githubusercontent.com/46797181/226779629-1f68b808-84da-4b1d-a05f-cf0edf991d90.png)
+
 
