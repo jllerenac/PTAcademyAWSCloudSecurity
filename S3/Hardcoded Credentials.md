@@ -14,3 +14,12 @@ aws s3api list-objects --bucket s3-upload-498701622957 --profile PTAcademyJllere
 If running `aws s3 cp s3://flag-498701622957/FLAG . --profile PTAcademyJllerena` a forbidden message is obtained
 
 Going to URL `https://s3-upload-498701622957.s3.amazonaws.com/index.html` will show a page. 
+
+![image](https://user-images.githubusercontent.com/46797181/227103487-1cf083e0-686d-426f-b1c0-ea27da4a55f7.png)
+
+Checking the page source will show AWS credentials
+![image](https://user-images.githubusercontent.com/46797181/227103707-09b66aca-ff3b-4d77-8cfb-f05d5afc8c9e.png)
+
+Configuring a profile with the new credentials will allow to download the flag 
+
+![image](https://user-images.githubusercontent.com/46797181/227104002-4b5fa842-2fdb-431d-a7be-1df3ec5d9669.png)
