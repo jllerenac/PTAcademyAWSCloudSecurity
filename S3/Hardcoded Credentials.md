@@ -23,3 +23,5 @@ Checking the page source will show AWS credentials
 Configuring a profile with the new credentials will allow to download the flag 
 
 ![image](https://user-images.githubusercontent.com/46797181/227104002-4b5fa842-2fdb-431d-a7be-1df3ec5d9669.png)
+
+EXERCISE COMPLETED !!!!!
