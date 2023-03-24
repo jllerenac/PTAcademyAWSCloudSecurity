@@ -13,3 +13,4 @@ Check the bucket policy. `aws s3api get-bucket-policy --bucket s3-special-reques
 Policy shows that we need a special agent to retrieve the flag, as seen below, using `curl -s http://s3-special-request-522968453802.s3.amazonaws.com/flag | xmllint --format -` will give an access denied message but if specifying the agent `curl -s http://s3-special-request-522968453802.s3.amazonaws.com/flag -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/*'` will retrieve the flag
 ![image](https://user-images.githubusercontent.com/46797181/227653240-205b2561-b2f1-4f79-8f6c-1d52497eb749.png)
 
+EXERCISE COMPLETED !!!!
