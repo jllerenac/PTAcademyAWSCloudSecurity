@@ -12,6 +12,9 @@ aws s3 ls s3://s3-file-load-static-845168849788 --profile PTAcademyJllerena
 ```
 ![image](https://user-images.githubusercontent.com/46797181/227757255-998e4eb3-6d8d-4cb8-814f-cb47e9eda231.png)
 
+Check if a static website is available in the browser. Enter the URL in the format `http://s3-file-load-402113608956.s3-website-us-east-1.amazonaws.com/`
+![image](https://user-images.githubusercontent.com/46797181/227757843-44100fd9-3cee-4c79-b513-016096a64dcd.png)
+
 
 
 
