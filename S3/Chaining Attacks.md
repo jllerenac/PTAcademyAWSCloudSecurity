@@ -51,6 +51,28 @@ Then upload the js file back to the bucket. `aws s3 cp custom.js s3://s3-file-lo
 
 ![image](https://user-images.githubusercontent.com/46797181/227759373-afd93298-c822-470b-a36c-99f98a34b609.png)
 
+Go to the application and enter any credentials and notice that the webhook receives the request 
+
+![image](https://user-images.githubusercontent.com/46797181/227759582-ab7c93db-3193-4057-956d-fc38a22de97b.png)
+
+Get the bucket policy with `aws s3api get-bucket-policy --bucket s3-file-load-static-402113608956 --output text --profile PTAcademyJllerena | jq ` and edit the file to look like the one below
+
+```
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
