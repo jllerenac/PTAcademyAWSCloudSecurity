@@ -58,11 +58,32 @@ Go to the application and enter any credentials and notice that the webhook rece
 Get the bucket policy with `aws s3api get-bucket-policy --bucket s3-file-load-static-402113608956 --output text --profile PTAcademyJllerena | jq ` and edit the file to look like the one below
 
 ```
-
+{
+  "Statement": [
+    {
+      "Action": [
+        "s3:Get*",
+        "s3:Put*"
+      ],
+      "Effect": "Deny",
+      "Principal": "*",
+      "Resource": [
+        "arn:aws:s3:::s3-file-load-static-927647510672/*",
+        "arn:aws:s3:::s3-file-load-static-927647510672"
+      ],
+      "Sid": "AllObjectActions"
+    }
+  ],
+  "Version": "2012-10-17"
+}
 
 ```
+Modify the policy with ` aws s3api put-bucket-policy --bucket s3-file-load-static-927647510672 --policy file://policy.json --profile PTAcademyJllerena` and if everything goes well no message will be shown and the policy will be applied 
 
+Go to the application URL `http://s3-file-load-927647510672.s3-website-us-east-1.amazonaws.com/` and check the console, notice that there are `HTTP 403 forbidden` message due to the change of policy which denies now
+![image](https://user-images.githubusercontent.com/46797181/228724492-82efdc12-595f-4edc-8719-f867eecad10f.png)
 
+!!! EXERCISE COMPLETED 
 
 
 
