@@ -17,9 +17,23 @@ The `sessions` directory has a value, log in the web application with the creden
 
 ![image](https://user-images.githubusercontent.com/46797181/228727892-28109b46-30da-4462-a938-2e5f79a5521e.png)
 
+Interact with the S3 server using boto3 python library and check the content of the recently created object in `sessions` directory.
 
+```
 
+python
+import boto3
+from botocore import UNSIGNED
+from botocore.config import Config
+s3=boto3.client('s3',
+endpoint_url='http://s3.pentesteracademylab.appspot.com',config=Config(signature_version=UN
+SIGNED))
+object =
+s3.get_object(Bucket='assets',Key='sessions/43085237187070924862845585858148322582')
+data=object['Body'].read()
+data
 
+```
 
 
 
