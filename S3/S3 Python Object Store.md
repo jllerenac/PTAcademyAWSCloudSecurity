@@ -11,6 +11,12 @@ Execute the command `aws --endpoint http://s3.pentesteracademylab.appspot.com --
 
 #### Note: This challenge is loaded in PT Academy VNC machine, it works only there, using local machine, HTTP 404 will appear 
 
+There is a `sessions` folder, check with `aws --endpoint http://s3.pentesteracademylab.appspot.com --no-sign-request s3 ls s3://assets/sessions/`
+
+The `sessions` directory has a value, log in the web application with the credentials `guest:guest` as stated in the exercise instructions, then repeat the above command and notice that another session object has been created.
+
+![image](https://user-images.githubusercontent.com/46797181/228727892-28109b46-30da-4462-a938-2e5f79a5521e.png)
+
 
 
 
