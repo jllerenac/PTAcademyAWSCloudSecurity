@@ -9,7 +9,7 @@ Checking the page source, it shows that components are loaded from the s3 bucket
 
 Execute the command `aws --endpoint http://s3.pentesteracademylab.appspot.com --no-sign-request s3 ls s3://assets`
 
-### Note: This challenge is loaded in PT Academy VNC machine, it works only there, using local machine, HTTP 404 will appear 
+#### Note: This challenge is loaded in PT Academy VNC machine, it works only there, using local machine, HTTP 404 will appear 
 
 
 
